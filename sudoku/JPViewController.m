@@ -7,10 +7,24 @@
 //
 
 #import "JPViewController.h"
+#import "JPGridView.h"
+
+int initialGrid[9][9]={
+    {7,0,0,4,2,0,0,0,9},
+    {0,0,9,5,0,0,0,0,4},
+    {0,2,0,6,9,0,5,0,0},
+    {6,5,0,0,0,0,4,3,0},
+    {0,8,0,0,0,6,0,0,7},
+    {0,1,0,0,4,5,6,0,0},
+    {0,0,0,8,6,0,0,0,2},
+    {3,4,0,9,0,0,1,0,0},
+    {8,0,0,3,0,2,7,4,0}
+};
+
 
 @interface JPViewController () {
-    UIButton* _button;
-    UIView* _gridView;
+    
+    JPGridView* _gridView;
 }
 
 @end
@@ -31,23 +45,18 @@
     CGRect gridFrame = CGRectMake(x,y,size,size);
     
     // Create grid view.
-    _gridView = [[UIView alloc] initWithFrame:gridFrame];
+    _gridView = [[JPGridView alloc] initWithFrame:gridFrame];
     _gridView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_gridView];
     
-    // Create button.
-    CGFloat buttonSize = size / 5.0;
-    CGRect buttonFrame = CGRectMake(0,0,buttonSize,buttonSize);
-    _button = [[UIButton alloc] initWithFrame:buttonFrame];
-    _button.backgroundColor = [UIColor orangeColor];
-    [_gridView addSubview:_button];
-    
+
+
     // Create target for button.
-    [_button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     // Change what the button says.
-    [_button setShowsTouchWhenHighlighted:YES];
-    [_button setTag:1];
+    
+    
     
 }
 
@@ -57,9 +66,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)buttonPressed:(id)sender
-{
-    NSLog(@"Button 1 was pressed.");
-}
+
 
 @end

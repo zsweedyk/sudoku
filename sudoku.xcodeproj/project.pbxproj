@@ -22,6 +22,7 @@
 		0303ABE519C25D1A00888433 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0303ABC419C25D1A00888433 /* UIKit.framework */; };
 		0303ABED19C25D1A00888433 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0303ABEB19C25D1A00888433 /* InfoPlist.strings */; };
 		0303ABEF19C25D1A00888433 /* sudokuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0303ABEE19C25D1A00888433 /* sudokuTests.m */; };
+		0303ABFA19C376F400888433 /* JPGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0303ABF919C376F400888433 /* JPGridView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		0303ABEA19C25D1A00888433 /* sudokuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sudokuTests-Info.plist"; sourceTree = "<group>"; };
 		0303ABEC19C25D1A00888433 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0303ABEE19C25D1A00888433 /* sudokuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sudokuTests.m; sourceTree = "<group>"; };
+		0303ABF819C376F400888433 /* JPGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPGridView.h; sourceTree = "<group>"; };
+		0303ABF919C376F400888433 /* JPGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGridView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				0303ABD519C25D1A00888433 /* Main_iPad.storyboard */,
 				0303ABD819C25D1A00888433 /* JPViewController.h */,
 				0303ABD919C25D1A00888433 /* JPViewController.m */,
+				0303ABF819C376F400888433 /* JPGridView.h */,
+				0303ABF919C376F400888433 /* JPGridView.m */,
 				0303ABDB19C25D1A00888433 /* Images.xcassets */,
 				0303ABC719C25D1A00888433 /* Supporting Files */,
 			);
@@ -256,6 +261,7 @@
 			files = (
 				0303ABD119C25D1A00888433 /* JPAppDelegate.m in Sources */,
 				0303ABDA19C25D1A00888433 /* JPViewController.m in Sources */,
+				0303ABFA19C376F400888433 /* JPGridView.m in Sources */,
 				0303ABCD19C25D1A00888433 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
