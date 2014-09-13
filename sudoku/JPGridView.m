@@ -33,14 +33,14 @@
         
         CGFloat currentY = 2 * separationDistance;
         
-        _buttons = [_buttons initWithCapacity:9];
+        _buttons = [[NSMutableArray alloc] initWithCapacity:9];
         
         
         for (int i = 0; i < 9; ++i) {
             CGFloat currentX = 2 * separationDistance;
             
             NSMutableArray* currentRow;
-            currentRow = [currentRow initWithCapacity:9];
+            currentRow = [[NSMutableArray alloc] initWithCapacity:9];
             for (int j = 0; j < 9; ++j) {
                 CGRect buttonFrame = CGRectMake(currentX,currentY,buttonSize,buttonSize);
                 
@@ -73,6 +73,11 @@
 {
     UIButton* tempButton = (UIButton*) sender;
     NSLog(@"Button %i was pressed.", tempButton.tag);
+}
+
+- (void)setCellatRow:(int)row andColumn:(int)column toValue:(int)value {
+    UIButton* button = [[_buttons objectAtIndex:row] objectAtIndex: column];
+    [button setTitle:[NSString stringWithFormat:@"%i", value] forState:UIControlStateNormal];
 }
 
 /*

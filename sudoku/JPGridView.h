@@ -10,4 +10,6 @@
 
 @interface JPGridView : UIView
 
+- (void) setCellatRow:(int)row andColumn:(int)column toValue:(int)value;
+
 @end

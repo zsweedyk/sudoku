@@ -49,14 +49,18 @@ int initialGrid[9][9]={
     _gridView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_gridView];
     
+    [self setInitialGrid];
+    
+}
 
-
-    // Create target for button.
-    
-    
-    // Change what the button says.
-    
-    
+- (void)setInitialGrid {
+    for(int i = 0; i < 9; ++i) {
+        for (int j = 0; j < 9; ++j) {
+            if (initialGrid[i][j] != 0) {
+                [_gridView setCellatRow:i andColumn:j toValue:initialGrid[i][j]];
+            }
+        }
+    }
     
 }
 
