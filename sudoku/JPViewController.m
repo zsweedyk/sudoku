@@ -8,23 +8,12 @@
 
 #import "JPViewController.h"
 #import "JPGridView.h"
-
-int initialGrid[9][9]={
-    {7,0,0,4,2,0,0,0,9},
-    {0,0,9,5,0,0,0,0,4},
-    {0,2,0,6,9,0,5,0,0},
-    {6,5,0,0,0,0,4,3,0},
-    {0,8,0,0,0,6,0,0,7},
-    {0,1,0,0,4,5,6,0,0},
-    {0,0,0,8,6,0,0,0,2},
-    {3,4,0,9,0,0,1,0,0},
-    {8,0,0,3,0,2,7,4,0}
-};
-
+#import "RWAMGridModel.h"
 
 @interface JPViewController () {
     
     JPGridView* _gridView;
+    RWAMGridModel* _gridModel;
 }
 
 @end
@@ -49,16 +38,18 @@ int initialGrid[9][9]={
     _gridView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_gridView];
     
+    _gridModel = [[RWAMGridModel alloc] init];
+    
+    [_gridModel startNewGame];
     [self setInitialGrid];
     
 }
 
 - (void)setInitialGrid {
-    for(int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-            if (initialGrid[i][j] != 0) {
-                [_gridView setCellatRow:i andColumn:j toValue:initialGrid[i][j]];
-            }
+    for(int row = 0; row < 9; ++row) {
+        for (int col = 0; col < 9; ++col) {
+            int currentValue = [_gridModel getValueAtRow:row andColumn:col];
+            [_gridView setCellatRow:row andColumn:col toValue:currentValue];
         }
     }
     

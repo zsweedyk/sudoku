@@ -8,6 +8,53 @@
 
 #import "RWAMGridModel.h"
 
+int _grid[9][9]={
+    {7,0,0,4,2,0,0,0,9},
+    {0,0,9,5,0,0,0,0,4},
+    {0,2,0,6,9,0,5,0,0},
+    {6,5,0,0,0,0,4,3,0},
+    {0,8,0,0,0,6,0,0,7},
+    {0,1,0,0,4,5,6,0,0},
+    {0,0,0,8,6,0,0,0,2},
+    {3,4,0,9,0,0,1,0,0},
+    {8,0,0,3,0,2,7,4,0}
+};
+
+bool _mutable[9][9];
+
 @implementation RWAMGridModel
+
+- (void) startNewGame;
+{
+    // [self generateGrid];
+    [self setUpMutable];
+}
+
+- (void) setUpMutable;
+{
+    for (int row = 0; row<9; ++row) {
+        for (int col = 0; col<9; ++col) {
+            _mutable[row][col] = !(_grid[row][col]);
+        }
+    }
+}
+
+- (int) getValueAtRow:(int)row andColumn:(int)col;
+{
+    return _grid[row][col];
+}
+
+- (void) setValueAtRow:(int)row andColumn:(int)col toValue:(int)value;
+{
+    _grid[row][col] = value;
+}
+- (bool) isMutableAtRow:(int)row andColumn:(int)col;
+{
+    return _mutable[row][col];
+}
+- (bool) isConsistentAtRow:(int)row andColumn:(int)col forValue:(int)value;
+{
+    return NO;
+}
 
 @end
