@@ -84,7 +84,12 @@
 
 - (void)setCellatRow:(int)row andColumn:(int)column toValue:(int)value {
     UIButton* button = [[_buttons objectAtIndex:row] objectAtIndex: column];
-    [button setTitle:[NSString stringWithFormat:@"%i", value] forState:UIControlStateNormal];
+    if (value !=0) {
+        [button setTitle:[NSString stringWithFormat:@"%i", value] forState:UIControlStateNormal];
+    }
+    else {
+        [button setTitle: @"" forState:UIControlStateNormal];
+    }
 }
 
 /*

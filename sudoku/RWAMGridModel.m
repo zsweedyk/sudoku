@@ -54,7 +54,22 @@ bool _mutable[9][9];
 }
 - (bool) isConsistentAtRow:(int)row andColumn:(int)col forValue:(int)value;
 {
-    return NO;
+    for (int c = 0; c < 9; ++c) {
+        if (c != col && _grid[row][c] == value){
+            return NO;
+        }
+    }
+    for (int r = 0; r < 9; ++r) {
+        if (r != row && _grid[r][col] == value){
+            return NO;
+        }
+    }
+//    int boxStartRow = row/3 * 3;
+//    int boxStartCol = col/3 * 3;
+//    for (int boxRow = boxStartRow; boxRow < (boxStartRow + 3); ++boxRow) {
+//        for (int boxCol = boxStartCol; boxCol < (boxStartCol + 3); ++boxCol) {
+//    }
+    return YES;
 }
 
 @end
