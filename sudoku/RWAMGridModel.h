@@ -1,0 +1,19 @@
+//
+//  RWAMGridModel.h
+//  sudoku
+//
+//  Created by Rachel Wilson on 9/19/14.
+//  Copyright (c) 2014 Josh Petrack. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface RWAMGridModel : NSObject
+
+//- (void) generateGrid; //TODO
+- (int) getValueAtRow:(int)row andColumn:(int)col ;
+- (void) setValueAtRow:(int)row andColumn:(int)column toValue:(int)value;
+- (bool) isMutableAtRow:(int)row andColumn:(int)column;
+- (bool) isConsistentAtRow:(int)row andColumn:(int)column forValue:(int)value;
+
+@end
