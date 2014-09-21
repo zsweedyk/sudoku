@@ -64,11 +64,13 @@ bool _mutable[9][9];
             return NO;
         }
     }
-//    int boxStartRow = row/3 * 3;
-//    int boxStartCol = col/3 * 3;
-//    for (int boxRow = boxStartRow; boxRow < (boxStartRow + 3); ++boxRow) {
-//        for (int boxCol = boxStartCol; boxCol < (boxStartCol + 3); ++boxCol) {
-//    }
+    int boxStartRow = row/3 * 3;
+    int boxStartCol = col/3 * 3;
+    for (int boxRow = boxStartRow; boxRow < (boxStartRow + 3); ++boxRow) {
+        for (int boxCol = boxStartCol; boxCol < (boxStartCol + 3); ++boxCol) {
+            return NO;
+        }
+    }
     return YES;
 }
 
