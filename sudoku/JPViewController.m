@@ -9,11 +9,13 @@
 #import "JPViewController.h"
 #import "JPGridView.h"
 #import "RWAMGridModel.h"
+#import "RWAMNumPadView.h"
 
 @interface JPViewController () {
     
     JPGridView* _gridView;
     RWAMGridModel* _gridModel;
+    RWAMNumPadView* _numPadView;
 }
 
 @end
@@ -37,6 +39,15 @@
     _gridView = [[JPGridView alloc] initWithFrame:gridFrame];
     _gridView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_gridView];
+    
+    // Create numpad view.
+    CGFloat spaceBetweenViews = MIN(CGRectGetWidth(frame), CGRectGetHeight(frame))*.02;
+    CGFloat numPadY = y + size + spaceBetweenViews;
+    
+    CGRect numPadFrame = CGRectMake(x, numPadY, size, size * .10);
+    _numPadView = [[RWAMNumPadView alloc] initWithFrame:numPadFrame];
+    _numPadView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:_numPadView];
     
     _gridModel = [[RWAMGridModel alloc] init];
     

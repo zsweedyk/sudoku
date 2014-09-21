@@ -7,8 +7,12 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "RWAMGridModel.h"
 
 @interface sudokuTests : XCTestCase
+{
+    RWAMGridModel* _gridModel;
+}
 
 @end
 
@@ -18,6 +22,7 @@
 {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    _gridModel = [[RWAMGridModel alloc] init];
 }
 
 - (void)tearDown
@@ -26,9 +31,16 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testMutable
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    XCTAssertTrue([_gridModel isMutableAtRow:0 andColumn:0] == NO, @"Mutability at 0,0 - should not be mutable");
+    XCTAssertTrue([_gridModel isMutableAtRow:1 andColumn:0] == YES, @"Mutability at 1,0 - should be mutable");
+}
+
+- (void)testConsistency
+{
+    XCTAssertTrue([_gridModel isConsistentAtRow:0 andColumn:2 forValue:3] == YES, @"Consistency with 3 at 0,2 - should be yes");
+    XCTAssertTrue([_gridModel isConsistentAtRow:0 andColumn:2 forValue:9] == NO, @"Consistency with 9 at 0,2 - should be no");
 }
 
 @end
