@@ -68,7 +68,9 @@ bool _mutable[9][9];
     int boxStartCol = col/3 * 3;
     for (int boxRow = boxStartRow; boxRow < (boxStartRow + 3); ++boxRow) {
         for (int boxCol = boxStartCol; boxCol < (boxStartCol + 3); ++boxCol) {
-            return YES;
+            if (boxCol != col && boxRow != row && _grid[boxRow][boxCol] == value) {
+                return NO;
+            }
         }
     }
     return YES;
