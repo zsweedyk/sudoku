@@ -75,6 +75,7 @@
         else {
             if ([_gridModel isConsistentAtRow:row andColumn:col forValue:currentValue]) {
                 [_gridView setCellatRow:row andColumn:col toValue:currentValue];
+                [_gridModel setValueAtRow:row andColumn:col toValue:currentValue];
             }
         }
     }

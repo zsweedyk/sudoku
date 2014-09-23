@@ -43,4 +43,16 @@
     XCTAssertTrue([_gridModel isConsistentAtRow:0 andColumn:2 forValue:9] == NO, @"Consistency with 9 at 0,2 - should be no");
 }
 
+- (void)testGetAndSetValue
+{
+    XCTAssertTrue([_gridModel getValueAtRow:8 andColumn:8] == 0, @"Value of initial grid at 8,8 should be 0.");
+    XCTAssertTrue([_gridModel getValueAtRow:5 andColumn:5] == 5, @"Value of initial grid at 5,5 should be 5.");
+    
+    [_gridModel setValueAtRow:8 andColumn:8 toValue:5];
+    [_gridModel setValueAtRow:0 andColumn:1 toValue:3];
+    
+    XCTAssertTrue([_gridModel getValueAtRow:8 andColumn:8] == 5, @"Value of changed grid at 8,8 should be 5.");
+    XCTAssertTrue([_gridModel getValueAtRow:0 andColumn:1] == 3, @"Value of changed grid at 0,1 should be 3.");
+}
+
 @end
