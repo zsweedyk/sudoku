@@ -48,10 +48,12 @@ bool _mutable[9][9];
 {
     _grid[row][col] = value;
 }
+
 - (bool) isMutableAtRow:(int)row andColumn:(int)col;
 {
     return _mutable[row][col];
 }
+
 - (bool) isConsistentAtRow:(int)row andColumn:(int)col forValue:(int)value;
 {
     for (int c = 0; c < 9; ++c) {

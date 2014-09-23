@@ -39,6 +39,7 @@
     _gridView = [[JPGridView alloc] initWithFrame:gridFrame];
     _gridView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_gridView];
+    [_gridView setTarget:self action:@selector(gridCellSelected:)];
     
     // Create numpad view.
     CGFloat spaceBetweenViews = MIN(CGRectGetWidth(frame), CGRectGetHeight(frame))*.02;
@@ -54,6 +55,14 @@
     [_gridModel startNewGame];
     [self setInitialGrid];
     
+}
+
+- (void)gridCellSelected:(id)sender
+{
+    NSNumber* selectedRow = [_gridView getCurrentRow];
+    NSNumber* selectedCol = [_gridView getCurrentColumn];
+    
+    NSLog(@"Row provided through click is %@ and column is %@", selectedRow, selectedCol);
 }
 
 - (void)setInitialGrid {
