@@ -10,11 +10,25 @@
 
 @interface JPGridView (){
     NSMutableArray*  _buttons;
+    NSInteger _currentRow;
+    NSInteger _currentCol;
+    id _target;
+    SEL _action;
 }
 
 @end
 
 @implementation JPGridView
+
+- (NSInteger) getCurrentRow
+{
+    return _currentRow;
+}
+
+- (NSInteger) getCurrentColumn
+{
+    return _currentCol;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -79,12 +93,25 @@
 - (void)buttonPressed:(id)sender
 {
     UIButton* tempButton = (UIButton*) sender;
-    NSLog(@"Button %i was pressed.", tempButton.tag);
+    _currentRow = (NSInteger)tempButton.tag / 9;
+    _currentCol = (NSInteger)tempButton.tag % 9;
+    [_target performSelector:_action];
 }
 
 - (void)setCellatRow:(int)row andColumn:(int)column toValue:(int)value {
     UIButton* button = [[_buttons objectAtIndex:row] objectAtIndex: column];
-    [button setTitle:[NSString stringWithFormat:@"%i", value] forState:UIControlStateNormal];
+    if (value !=0) {
+        [button setTitle:[NSString stringWithFormat:@"%i", value] forState:UIControlStateNormal];
+    }
+    else {
+        [button setTitle: @"" forState:UIControlStateNormal];
+    }
+}
+
+- (void)setTarget:(id)sender action:(SEL)action
+{
+    _target = sender;
+    _action = action;
 }
 
 /*

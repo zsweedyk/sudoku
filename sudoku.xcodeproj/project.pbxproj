@@ -23,6 +23,8 @@
 		0303ABED19C25D1A00888433 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0303ABEB19C25D1A00888433 /* InfoPlist.strings */; };
 		0303ABEF19C25D1A00888433 /* sudokuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0303ABEE19C25D1A00888433 /* sudokuTests.m */; };
 		0303ABFA19C376F400888433 /* JPGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0303ABF919C376F400888433 /* JPGridView.m */; };
+		FE4C491B19CF7CB3004384C4 /* RWAMNumPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4C491A19CF7CB3004384C4 /* RWAMNumPadView.m */; };
+		FE64BA0C19CCFB9900AE9EA8 /* RWAMGridModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE64BA0B19CCFB9900AE9EA8 /* RWAMGridModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,10 @@
 		0303ABEE19C25D1A00888433 /* sudokuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sudokuTests.m; sourceTree = "<group>"; };
 		0303ABF819C376F400888433 /* JPGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPGridView.h; sourceTree = "<group>"; };
 		0303ABF919C376F400888433 /* JPGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGridView.m; sourceTree = "<group>"; };
+		FE4C491919CF7CB3004384C4 /* RWAMNumPadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWAMNumPadView.h; sourceTree = "<group>"; };
+		FE4C491A19CF7CB3004384C4 /* RWAMNumPadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWAMNumPadView.m; sourceTree = "<group>"; };
+		FE64BA0A19CCFB9900AE9EA8 /* RWAMGridModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWAMGridModel.h; sourceTree = "<group>"; };
+		FE64BA0B19CCFB9900AE9EA8 /* RWAMGridModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWAMGridModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,10 @@
 				0303ABD919C25D1A00888433 /* JPViewController.m */,
 				0303ABF819C376F400888433 /* JPGridView.h */,
 				0303ABF919C376F400888433 /* JPGridView.m */,
+				FE64BA0A19CCFB9900AE9EA8 /* RWAMGridModel.h */,
+				FE64BA0B19CCFB9900AE9EA8 /* RWAMGridModel.m */,
+				FE4C491919CF7CB3004384C4 /* RWAMNumPadView.h */,
+				FE4C491A19CF7CB3004384C4 /* RWAMNumPadView.m */,
 				0303ABDB19C25D1A00888433 /* Images.xcassets */,
 				0303ABC719C25D1A00888433 /* Supporting Files */,
 			);
@@ -262,6 +272,8 @@
 				0303ABD119C25D1A00888433 /* JPAppDelegate.m in Sources */,
 				0303ABDA19C25D1A00888433 /* JPViewController.m in Sources */,
 				0303ABFA19C376F400888433 /* JPGridView.m in Sources */,
+				FE64BA0C19CCFB9900AE9EA8 /* RWAMGridModel.m in Sources */,
+				FE4C491B19CF7CB3004384C4 /* RWAMNumPadView.m in Sources */,
 				0303ABCD19C25D1A00888433 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,6 +489,7 @@
 				0303ABF419C25D1A00888433 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0303ABF519C25D1A00888433 /* Build configuration list for PBXNativeTarget "sudokuTests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +498,7 @@
 				0303ABF719C25D1A00888433 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,23 +8,14 @@
 
 #import "JPViewController.h"
 #import "JPGridView.h"
-
-int initialGrid[9][9]={
-    {7,0,0,4,2,0,0,0,9},
-    {0,0,9,5,0,0,0,0,4},
-    {0,2,0,6,9,0,5,0,0},
-    {6,5,0,0,0,0,4,3,0},
-    {0,8,0,0,0,6,0,0,7},
-    {0,1,0,0,4,5,6,0,0},
-    {0,0,0,8,6,0,0,0,2},
-    {3,4,0,9,0,0,1,0,0},
-    {8,0,0,3,0,2,7,4,0}
-};
-
+#import "RWAMGridModel.h"
+#import "RWAMNumPadView.h"
 
 @interface JPViewController () {
     
     JPGridView* _gridView;
+    RWAMGridModel* _gridModel;
+    RWAMNumPadView* _numPadView;
 }
 
 @end
@@ -48,20 +39,55 @@ int initialGrid[9][9]={
     _gridView = [[JPGridView alloc] initWithFrame:gridFrame];
     _gridView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_gridView];
+    [_gridView setTarget:self action:@selector(gridCellSelected:)];
     
+    // Create numpad view.
+    CGFloat spaceBetweenViews = MIN(CGRectGetWidth(frame), CGRectGetHeight(frame))*.02;
+    CGFloat numPadY = y + size + spaceBetweenViews;
+    
+    CGRect numPadFrame = CGRectMake(x, numPadY, size, size * .10);
+    _numPadView = [[RWAMNumPadView alloc] initWithFrame:numPadFrame];
+    _numPadView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:_numPadView];
+    
+    _gridModel = [[RWAMGridModel alloc] init];
+    
+    [_gridModel startNewGame];
     [self setInitialGrid];
     
 }
 
-- (void)setInitialGrid {
-    for(int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-            if (initialGrid[i][j] != 0) {
-                [_gridView setCellatRow:i andColumn:j toValue:initialGrid[i][j]];
+- (void)gridCellSelected:(id)sender
+{
+    NSInteger selectedRow = [_gridView getCurrentRow];
+    NSInteger selectedCol = [_gridView getCurrentColumn];
+    
+    [self validateInputForRow:selectedRow andColumn:selectedCol];
+}
+
+-(void)validateInputForRow: (NSInteger)row andColumn: (NSInteger)col
+{
+    if ([_gridModel isMutableAtRow:row andColumn:col]) {
+        NSInteger currentValue = [_numPadView getCurrentValue];
+        if (currentValue == 0) {
+            [_gridView setCellatRow:row andColumn:col toValue:currentValue];
+        }
+        else {
+            if ([_gridModel isConsistentAtRow:row andColumn:col forValue:currentValue]) {
+                [_gridView setCellatRow:row andColumn:col toValue:currentValue];
+                [_gridModel setValueAtRow:row andColumn:col toValue:currentValue];
             }
         }
     }
-    
+}
+
+- (void)setInitialGrid {
+    for(int row = 0; row < 9; ++row) {
+        for (int col = 0; col < 9; ++col) {
+            int currentValue = [_gridModel getValueAtRow:row andColumn:col];
+            [_gridView setCellatRow:row andColumn:col toValue:currentValue];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -10,8 +10,13 @@
 
 @interface JPGridView : UIView
 
+- (NSInteger) getCurrentRow;
+
+- (NSInteger) getCurrentColumn;
+
+- (void) setTarget:(id)sender action:(SEL)action;
+
 - (void) setCellatRow:(int)row andColumn:(int)column toValue:(int)value;
 
-// WOW SOMETHING
 
 @end
