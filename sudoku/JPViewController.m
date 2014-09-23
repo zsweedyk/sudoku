@@ -59,10 +59,25 @@
 
 - (void)gridCellSelected:(id)sender
 {
-    NSNumber* selectedRow = [_gridView getCurrentRow];
-    NSNumber* selectedCol = [_gridView getCurrentColumn];
+    NSInteger selectedRow = [_gridView getCurrentRow];
+    NSInteger selectedCol = [_gridView getCurrentColumn];
     
-    NSLog(@"Row provided through click is %@ and column is %@", selectedRow, selectedCol);
+    [self validateInputForRow:selectedRow andColumn:selectedCol];
+}
+
+-(void)validateInputForRow: (NSInteger)row andColumn: (NSInteger)col
+{
+    if ([_gridModel isMutableAtRow:row andColumn:col]) {
+        NSInteger currentValue = [_numPadView getCurrentValue];
+        if (currentValue == 0) {
+            [_gridView setCellatRow:row andColumn:col toValue:currentValue];
+        }
+        else {
+            if ([_gridModel isConsistentAtRow:row andColumn:col forValue:currentValue]) {
+                [_gridView setCellatRow:row andColumn:col toValue:currentValue];
+            }
+        }
+    }
 }
 
 - (void)setInitialGrid {
@@ -72,7 +87,6 @@
             [_gridView setCellatRow:row andColumn:col toValue:currentValue];
         }
     }
-    
 }
 
 - (void)didReceiveMemoryWarning

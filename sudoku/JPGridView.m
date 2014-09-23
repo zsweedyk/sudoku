@@ -10,8 +10,8 @@
 
 @interface JPGridView (){
     NSMutableArray*  _buttons;
-    NSNumber* _currentRow;
-    NSNumber* _currentCol;
+    NSInteger _currentRow;
+    NSInteger _currentCol;
     id _target;
     SEL _action;
 }
@@ -20,12 +20,12 @@
 
 @implementation JPGridView
 
-- (NSNumber*) getCurrentRow
+- (NSInteger) getCurrentRow
 {
     return _currentRow;
 }
 
-- (NSNumber*) getCurrentColumn
+- (NSInteger) getCurrentColumn
 {
     return _currentCol;
 }
@@ -93,8 +93,8 @@
 - (void)buttonPressed:(id)sender
 {
     UIButton* tempButton = (UIButton*) sender;
-    _currentRow = [NSNumber numberWithInt:tempButton.tag / 9];
-    _currentCol = [NSNumber numberWithInt:tempButton.tag % 9];
+    _currentRow = (NSInteger)tempButton.tag / 9;
+    _currentCol = (NSInteger)tempButton.tag % 9;
     [_target performSelector:_action];
 }
 

@@ -10,9 +10,9 @@
 
 @interface JPGridView : UIView
 
-- (NSNumber*) getCurrentRow;
+- (NSInteger) getCurrentRow;
 
-- (NSNumber*) getCurrentColumn;
+- (NSInteger) getCurrentColumn;
 
 - (void) setTarget:(id)sender action:(SEL)action;
 

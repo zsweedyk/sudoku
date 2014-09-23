@@ -61,8 +61,7 @@
     UIButton* tempButton = (UIButton*) sender;
     ((UIButton*) _buttons[_currentValue]).backgroundColor = [UIColor magentaColor];
     _currentValue = tempButton.tag;
-    ((UIButton*) _buttons[_currentValue]).backgroundColor = [UIColor blueColor];
-    NSLog(@"Button %i was pressed.", tempButton.tag);
+    ((UIButton*) _buttons[_currentValue]).backgroundColor = [UIColor cyanColor];
 }
 
 /*
