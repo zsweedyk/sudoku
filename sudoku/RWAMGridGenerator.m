@@ -8,18 +8,36 @@
 
 #import "RWAMGridGenerator.h"
 
-int _gridsArray[9][9][9];
+@interface RWAMGridGenerator() {
+    NSArray* _textGrids;
+    
+}
+
+@end
+
+
 
 @implementation RWAMGridGenerator
 
 - (void) readGridsFile
 {
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"grid1" ofType:@"txt"];
+    NSString* path1 = [[NSBundle mainBundle] pathForResource:@"grid1" ofType:@"txt"];
     NSError* error;
     
-    NSString* readString = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+    NSMutableString* readString = [[NSMutableString alloc] initWithContentsOfFile:path1 encoding:NSUTF8StringEncoding error:&error];
     
-    int currentGrid = 0;
+    NSString* path2 = [[NSBundle mainBundle] pathForResource:@"grid2" ofType:@"txt"];
+    
+    [readString appendString: [[NSString alloc] initWithContentsOfFile:path2 encoding:NSUTF8StringEncoding error:&error]];
+    
+    _textGrids = [[NSArray alloc] init];
+    _textGrids = [readString componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    
+//    NSInteger count = [_textGrids count];
+//    for(int i = 0; i < count; ++i) {
+//        NSLog(@"Grid %d is %@", i, _textGrids[i]);
+//    }
+    
     
 //    while (!(readString empty)) {
 //        take first 81 elements of readString

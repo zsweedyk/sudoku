@@ -11,6 +11,7 @@
 @interface RWAMGridModel : NSObject
 
 //- (void) generateGrid; //TODO
+- (void) initializeFirstGame;
 - (void) startNewGame;
 - (int) getValueAtRow:(int)row andColumn:(int)col ;
 - (void) setValueAtRow:(int)row andColumn:(int)col toValue:(int)value;

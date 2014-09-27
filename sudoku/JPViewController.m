@@ -52,7 +52,7 @@
     
     _gridModel = [[RWAMGridModel alloc] init];
     
-    [_gridModel startNewGame];
+    [_gridModel initializeFirstGame];
     [self setInitialGrid];
     
 }

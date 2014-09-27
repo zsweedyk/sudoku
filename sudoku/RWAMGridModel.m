@@ -7,7 +7,13 @@
 //
 
 #import "RWAMGridModel.h"
+#import "RWAMGridGenerator.h"
 
+@interface RWAMGridModel() {
+    RWAMGridGenerator* _gridGenerator;
+}
+
+@end
 int _grid[9][9]={
     {7,0,0,4,2,0,0,0,9},
     {0,0,9,5,0,0,0,0,4},
@@ -23,6 +29,13 @@ int _grid[9][9]={
 bool _mutable[9][9];
 
 @implementation RWAMGridModel
+
+- (void) initializeFirstGame;
+{
+    _gridGenerator = [[RWAMGridGenerator alloc] init];
+    [_gridGenerator readGridsFile];
+    [self startNewGame];
+}
 
 - (void) startNewGame;
 {
