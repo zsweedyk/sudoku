@@ -11,22 +11,24 @@
 
 @interface RWAMGridModel() {
     RWAMGridGenerator* _gridGenerator;
+    int _grid[9][9];
+    bool _mutable[9][9];
 }
 
 @end
-int _grid[9][9]={
-    {7,0,0,4,2,0,0,0,9},
-    {0,0,9,5,0,0,0,0,4},
-    {0,2,0,6,9,0,5,0,0},
-    {6,5,0,0,0,0,4,3,0},
-    {0,8,0,0,0,6,0,0,7},
-    {0,1,0,0,4,5,6,0,0},
-    {0,0,0,8,6,0,0,0,2},
-    {3,4,0,9,0,0,1,0,0},
-    {8,0,0,3,0,2,7,4,0}
-};
+//int _grid[9][9]={
+//    {7,0,0,4,2,0,0,0,9},
+//    {0,0,9,5,0,0,0,0,4},
+//    {0,2,0,6,9,0,5,0,0},
+//    {6,5,0,0,0,0,4,3,0},
+//    {0,8,0,0,0,6,0,0,7},
+//    {0,1,0,0,4,5,6,0,0},
+//    {0,0,0,8,6,0,0,0,2},
+//    {3,4,0,9,0,0,1,0,0},
+//    {8,0,0,3,0,2,7,4,0}
+//};
 
-bool _mutable[9][9];
+
 
 @implementation RWAMGridModel
 
@@ -39,8 +41,18 @@ bool _mutable[9][9];
 
 - (void) startNewGame;
 {
-    // [self generateGrid];
+    [self generateGrid];
     [self setUpMutable];
+}
+
+- (void) generateGrid;
+{
+    int* gridArray = [_gridGenerator generateGrid];
+    for (int row = 0; row < 9; ++row) {
+        for (int col = 0; col < 9; ++col) {
+            _grid[row][col] = gridArray[9*row + col];
+        }
+    }
 }
 
 - (void) setUpMutable;
