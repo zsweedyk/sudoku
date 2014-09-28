@@ -35,22 +35,7 @@
     _textGrids = [[NSArray alloc] init];
     _textGrids = [readString componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
     
-    _count = [_textGrids count];
-//    for(int i = 0; i < count; ++i) {
-//        NSLog(@"Grid %d is %@", i, _textGrids[i]);
-//    }
-    
-    
-//    while (!(readString empty)) {
-//        take first 81 elements of readString
-//        for rows up to 9
-//            for cols up to 9
-//                check if . and handle this case
-//                place next char (atoi) in _gridsArray[currentGrid][row][col]
-//        ++currentGrid
-//        cut off first 81 chars of readstring or use skiptonewline type function
-//    }
-//        
+    _count = [_textGrids count];       
     
 }
 

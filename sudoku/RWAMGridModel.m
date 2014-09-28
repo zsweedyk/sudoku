@@ -103,4 +103,39 @@
     return YES;
 }
 
+/* _____ SAVE AND LOAD FUNCTIONS _____ */
+
+- (void) saveCurrentState;
+{
+    NSMutableString* saveString = [[NSMutableString alloc] init];
+    for (int row = 0; row < 9; ++row) {
+        for (int col = 0; col < 9; ++col) {
+            [saveString appendString: [NSString stringWithFormat:@"%d", _grid[row][col]]];
+        }
+    }
+    NSError* error;
+    [saveString writeToFile:[[NSBundle mainBundle] pathForResource:@"save" ofType:@"txt"]
+                 atomically:YES
+                 encoding:NSUTF8StringEncoding
+                 error:&error];
+}
+
+- (void) loadSavedState;
+{
+    NSString* saveFile = [[NSBundle mainBundle] pathForResource:@"save" ofType:@"txt"];
+    NSError* error;
+    
+    NSMutableString* savedString = [[NSMutableString alloc] initWithContentsOfFile:saveFile encoding:NSUTF8StringEncoding error:&error];
+    int currentIndex = 0;
+    for (int row = 0; row < 9; ++row) {
+        for (int col = 0; col < 9; ++col) {
+            char currentChar = [savedString characterAtIndex:currentIndex];
+            int numToAdd = [[NSString stringWithFormat:@"%c", currentChar] intValue];
+            _grid[row][col] = numToAdd;
+            ++currentIndex;
+        }
+    }
+    
+}
+
 @end

@@ -59,6 +59,8 @@
     _buttonsView.backgroundColor = [UIColor greenColor];
     [self.view addSubview:_buttonsView];
     [_buttonsView setTarget:self action:@selector(newGame:)];
+    [_buttonsView setTarget:self action:@selector(saveCurrentState:)];
+    [_buttonsView setTarget:self action:@selector(loadSavedState:)];
     
     _gridModel = [[RWAMGridModel alloc] init];
     
@@ -87,6 +89,7 @@
         NSInteger currentValue = [_numPadView getCurrentValue];
         if (currentValue == 0) {
             [_gridView setCellatRow:row andColumn:col toValue:currentValue];
+            [_gridModel setValueAtRow:row andColumn:col toValue:currentValue];
         }
         else {
             if ([_gridModel isConsistentAtRow:row andColumn:col forValue:currentValue]) {
@@ -97,13 +100,26 @@
     }
 }
 
-- (void)setInitialGrid {
+- (void)setInitialGrid
+{
     for(int row = 0; row < 9; ++row) {
         for (int col = 0; col < 9; ++col) {
             int currentValue = [_gridModel getValueAtRow:row andColumn:col];
             [_gridView setCellatRow:row andColumn:col toValue:currentValue];
         }
     }
+}
+
+/* _____ SAVE AND LOAD FUNCTIONS _____ */
+- (void) saveCurrentState:(id)sender;
+{
+    [_gridModel saveCurrentState];
+}
+
+- (void) loadSavedState:(id)sender;
+{
+    [_gridModel loadSavedState];
+    [self setInitialGrid];
 }
 
 - (void)didReceiveMemoryWarning

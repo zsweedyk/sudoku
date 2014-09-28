@@ -56,6 +56,7 @@
                 currentX += buttonWidth + horizontalSeparationDistance;
                 [button setTitle:[_buttonTitles objectAtIndex:buttonIndex] forState:UIControlStateNormal];
                 [button setTag:buttonIndex];
+                button.showsTouchWhenHighlighted = YES;
                 if (buttonIndex == 0) {
                     button.titleLabel.font = [UIFont systemFontOfSize:10];
                 }
@@ -105,6 +106,12 @@
     _target = sender;
     if ([NSStringFromSelector(action)  isEqual: @"newGame:"]) {
         [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:0];
+    }
+    if ([NSStringFromSelector(action)  isEqual: @"saveCurrentState:"]) {
+        [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:1];
+    }
+    if ([NSStringFromSelector(action)  isEqual: @"loadSavedState:"]) {
+        [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:2];
     }
 }
 

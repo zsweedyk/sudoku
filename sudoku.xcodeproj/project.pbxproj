@@ -29,6 +29,7 @@
 		FE64BA0C19CCFB9900AE9EA8 /* RWAMGridModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE64BA0B19CCFB9900AE9EA8 /* RWAMGridModel.m */; };
 		FEFF521619D754E900664B6E /* grid2.txt in Resources */ = {isa = PBXBuildFile; fileRef = FEFF521519D754E900664B6E /* grid2.txt */; };
 		FEFF521919D79C9F00664B6E /* RWAMButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFF521819D79C9F00664B6E /* RWAMButtonsView.m */; };
+		FEFF521B19D8BD2600664B6E /* save.txt in Resources */ = {isa = PBXBuildFile; fileRef = FEFF521A19D8BD2600664B6E /* save.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		FEFF521519D754E900664B6E /* grid2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grid2.txt; sourceTree = "<group>"; };
 		FEFF521719D79C9F00664B6E /* RWAMButtonsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWAMButtonsView.h; sourceTree = "<group>"; };
 		FEFF521819D79C9F00664B6E /* RWAMButtonsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWAMButtonsView.m; sourceTree = "<group>"; };
+		FEFF521A19D8BD2600664B6E /* save.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = save.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			children = (
 				FE121B8319D4CF9400D099A6 /* grid1.txt */,
 				FEFF521519D754E900664B6E /* grid2.txt */,
+				FEFF521A19D8BD2600664B6E /* save.txt */,
 				0303ABCF19C25D1A00888433 /* JPAppDelegate.h */,
 				0303ABD019C25D1A00888433 /* JPAppDelegate.m */,
 				0303ABD219C25D1A00888433 /* Main_iPhone.storyboard */,
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0303ABD719C25D1A00888433 /* Main_iPad.storyboard in Resources */,
+				FEFF521B19D8BD2600664B6E /* save.txt in Resources */,
 				FE121B8419D4CF9400D099A6 /* grid1.txt in Resources */,
 				0303ABDC19C25D1A00888433 /* Images.xcassets in Resources */,
 				FEFF521619D754E900664B6E /* grid2.txt in Resources */,
