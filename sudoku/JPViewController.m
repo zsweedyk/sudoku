@@ -16,6 +16,7 @@
     JPGridView* _gridView;
     RWAMGridModel* _gridModel;
     RWAMNumPadView* _numPadView;
+    UIButton* _newGameButton;
 }
 
 @end
@@ -50,9 +51,19 @@
     _numPadView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_numPadView];
     
+    //Create New Game Button.
+    CGFloat newGameButtonY = numPadY + spaceBetweenViews + size*.10;
+    CGRect buttonFrame = CGRectMake(x, newGameButtonY, size*.10, size*.10);
+    _newGameButton = [[UIButton alloc] initWithFrame:buttonFrame];
+    [self.view addSubview:_newGameButton];
+    [_newGameButton addTarget:self action:@selector(newGame:) forControlEvents:(UIControlEventTouchUpInside)];
+    [_newGameButton setTitle:@"New Game" forState:UIControlStateNormal];
+    _newGameButton.backgroundColor = [UIColor orangeColor];
+    
+    
     _gridModel = [[RWAMGridModel alloc] init];
     
-    [_gridModel startNewGame];
+    [_gridModel initializeFirstGame];
     [self setInitialGrid];
     
 }
@@ -63,6 +74,12 @@
     NSInteger selectedCol = [_gridView getCurrentColumn];
     
     [self validateInputForRow:selectedRow andColumn:selectedCol];
+}
+
+- (void) newGame:(id)sender;
+{
+    [_gridModel startNewGame];
+    [self setInitialGrid];
 }
 
 -(void)validateInputForRow: (NSInteger)row andColumn: (NSInteger)col

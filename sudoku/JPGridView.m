@@ -13,7 +13,7 @@
     NSInteger _currentRow;
     NSInteger _currentCol;
     id _target;
-    SEL _action;
+    SEL _gridCellSelected;
 }
 
 @end
@@ -95,7 +95,7 @@
     UIButton* tempButton = (UIButton*) sender;
     _currentRow = (NSInteger)tempButton.tag / 9;
     _currentCol = (NSInteger)tempButton.tag % 9;
-    [_target performSelector:_action];
+    [_target performSelector:_gridCellSelected];
 }
 
 - (void)setCellatRow:(int)row andColumn:(int)column toValue:(int)value {
@@ -111,7 +111,10 @@
 - (void)setTarget:(id)sender action:(SEL)action
 {
     _target = sender;
-    _action = action;
+    if ([NSStringFromSelector(action)  isEqual: @"gridCellSelected:"])
+    {
+        _gridCellSelected = action;
+    }
 }
 
 /*
