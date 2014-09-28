@@ -28,6 +28,7 @@
 		FE4C491B19CF7CB3004384C4 /* RWAMNumPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4C491A19CF7CB3004384C4 /* RWAMNumPadView.m */; };
 		FE64BA0C19CCFB9900AE9EA8 /* RWAMGridModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE64BA0B19CCFB9900AE9EA8 /* RWAMGridModel.m */; };
 		FEFF521619D754E900664B6E /* grid2.txt in Resources */ = {isa = PBXBuildFile; fileRef = FEFF521519D754E900664B6E /* grid2.txt */; };
+		FEFF521919D79C9F00664B6E /* RWAMButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFF521819D79C9F00664B6E /* RWAMButtonsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		FE64BA0A19CCFB9900AE9EA8 /* RWAMGridModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWAMGridModel.h; sourceTree = "<group>"; };
 		FE64BA0B19CCFB9900AE9EA8 /* RWAMGridModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWAMGridModel.m; sourceTree = "<group>"; };
 		FEFF521519D754E900664B6E /* grid2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grid2.txt; sourceTree = "<group>"; };
+		FEFF521719D79C9F00664B6E /* RWAMButtonsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWAMButtonsView.h; sourceTree = "<group>"; };
+		FEFF521819D79C9F00664B6E /* RWAMButtonsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWAMButtonsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,8 @@
 				0303ABD519C25D1A00888433 /* Main_iPad.storyboard */,
 				0303ABD819C25D1A00888433 /* JPViewController.h */,
 				0303ABD919C25D1A00888433 /* JPViewController.m */,
+				FEFF521719D79C9F00664B6E /* RWAMButtonsView.h */,
+				FEFF521819D79C9F00664B6E /* RWAMButtonsView.m */,
 				0303ABF819C376F400888433 /* JPGridView.h */,
 				0303ABF919C376F400888433 /* JPGridView.m */,
 				FE121B8519D4CFF100D099A6 /* RWAMGridGenerator.h */,
@@ -287,6 +292,7 @@
 				0303ABFA19C376F400888433 /* JPGridView.m in Sources */,
 				FE64BA0C19CCFB9900AE9EA8 /* RWAMGridModel.m in Sources */,
 				FE4C491B19CF7CB3004384C4 /* RWAMNumPadView.m in Sources */,
+				FEFF521919D79C9F00664B6E /* RWAMButtonsView.m in Sources */,
 				0303ABCD19C25D1A00888433 /* main.m in Sources */,
 				FE121B8719D4CFF100D099A6 /* RWAMGridGenerator.m in Sources */,
 			);

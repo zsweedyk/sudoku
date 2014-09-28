@@ -10,13 +10,14 @@
 #import "JPGridView.h"
 #import "RWAMGridModel.h"
 #import "RWAMNumPadView.h"
+#import "RWAMButtonsView.h"
 
 @interface JPViewController () {
     
     JPGridView* _gridView;
     RWAMGridModel* _gridModel;
     RWAMNumPadView* _numPadView;
-    UIButton* _newGameButton;
+    RWAMButtonsView* _buttonsView;
 }
 
 @end
@@ -51,15 +52,13 @@
     _numPadView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_numPadView];
     
-    //Create New Game Button.
+    //Create Buttons view.
     CGFloat newGameButtonY = numPadY + spaceBetweenViews + size*.10;
-    CGRect buttonFrame = CGRectMake(x, newGameButtonY, size*.10, size*.10);
-    _newGameButton = [[UIButton alloc] initWithFrame:buttonFrame];
-    [self.view addSubview:_newGameButton];
-    [_newGameButton addTarget:self action:@selector(newGame:) forControlEvents:(UIControlEventTouchUpInside)];
-    [_newGameButton setTitle:@"New Game" forState:UIControlStateNormal];
-    _newGameButton.backgroundColor = [UIColor orangeColor];
-    
+    CGRect buttonViewFrame = CGRectMake(x, newGameButtonY, size, size*.30);
+    _buttonsView = [[RWAMButtonsView alloc] initWithFrame:buttonViewFrame];
+    _buttonsView.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:_buttonsView];
+    [_buttonsView setTarget:self action:@selector(newGame:)];
     
     _gridModel = [[RWAMGridModel alloc] init];
     
