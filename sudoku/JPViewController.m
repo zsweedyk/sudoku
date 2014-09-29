@@ -129,10 +129,10 @@
     
 }
 
-//- (void) toggleMusic
-//{
-//    
-//}
+- (void) toggleMusic
+{
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
