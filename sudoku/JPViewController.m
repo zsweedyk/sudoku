@@ -61,6 +61,8 @@
     [_buttonsView setTarget:self action:@selector(newGame:)];
     [_buttonsView setTarget:self action:@selector(saveCurrentState:)];
     [_buttonsView setTarget:self action:@selector(loadSavedState:)];
+    [_buttonsView setTarget:self action:@selector(changeTheme:)];
+//    [_buttonsView setTarget:self action:@selector(toggleMusic:)];
     
     _gridModel = [[RWAMGridModel alloc] init];
     
@@ -77,7 +79,7 @@
     [self validateInputForRow:selectedRow andColumn:selectedCol];
 }
 
-- (void) newGame:(id)sender;
+- (void) newGame:(id)sender
 {
     [_gridModel startNewGame];
     [self setInitialGrid];
@@ -111,16 +113,26 @@
 }
 
 /* _____ SAVE AND LOAD FUNCTIONS _____ */
-- (void) saveCurrentState:(id)sender;
+- (void) saveCurrentState:(id)sender
 {
     [_gridModel saveCurrentState];
 }
 
-- (void) loadSavedState:(id)sender;
+- (void) loadSavedState:(id)sender
 {
     [_gridModel loadSavedState];
     [self setInitialGrid];
 }
+
+- (void) changeTheme:(id)sender
+{
+    
+}
+
+//- (void) toggleMusic
+//{
+//    
+//}
 
 - (void)didReceiveMemoryWarning
 {

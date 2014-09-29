@@ -10,7 +10,7 @@
 
 @interface RWAMGridModel : NSObject
 
-//- (void) generateGrid; //TODO
+//- (void) generateGrid;
 - (void) initializeFirstGame;
 - (void) startNewGame;
 - (int) getValueAtRow:(int)row andColumn:(int)col ;

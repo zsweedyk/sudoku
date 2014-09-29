@@ -61,30 +61,6 @@
                     button.titleLabel.font = [UIFont systemFontOfSize:10];
                 }
                 ++buttonIndex;
-//                if (row == 0) {
-//                    if (col == 0) {
-//                        [button setTitle:@"New Game" forState:UIControlStateNormal];
-//                        button.titleLabel.font = [UIFont systemFontOfSize:10];
-//                    }
-//                    if (col == 1) {
-//                        [button setTitle:@"Save" forState:UIControlStateNormal];
-//                    }
-//                    if (col == 2) {
-//                        [button setTitle:@"Load" forState:UIControlStateNormal];
-//                    }
-//                }
-//                if (row == 1) {
-//                    if (col == 0) {
-//                        [button setTitle:@"Themes" forState:UIControlStateNormal];
-//                    }
-//                    if (col == 1) {
-//                        [button setTitle:@"Music" forState:UIControlStateNormal];
-//                    }
-//                    if (col == 2) {
-//                        [button setTitle:@"Restart" forState:UIControlStateNormal];
-//                    }
-//                }
-                
             }
             currentX = horizontalSeparationDistance;
             currentY += verticalSeparationDistance + buttonHeight;
@@ -94,14 +70,14 @@
     return self;
 }
 
-- (void) buttonPressed:(id)sender;
+- (void) buttonPressed:(id)sender
 {
     UIButton* tempButton = (UIButton*) sender;
     SEL relevantSelector = [[_buttonSelectors objectAtIndex:tempButton.tag] pointerValue];
     [_target performSelector:relevantSelector];
 }
 
-- (void) setTarget:(id)sender action:(SEL)action;
+- (void) setTarget:(id)sender action:(SEL)action
 {
     _target = sender;
     if ([NSStringFromSelector(action)  isEqual: @"newGame:"]) {
@@ -113,6 +89,16 @@
     if ([NSStringFromSelector(action)  isEqual: @"loadSavedState:"]) {
         [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:2];
     }
+    if ([NSStringFromSelector(action)  isEqual: @"changeTheme:"]) {
+        [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:3];
+    }
+//    if ([NSStringFromSelector(action)  isEqual: @"toggleMusic:"]) {
+//        [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:4];
+//        for (int i = 0; i < 5; ++i) {
+//            SEL selector = [[_buttonSelectors objectAtIndex:i] pointerValue];
+//            NSLog(NSStringFromSelector(selector));
+//        }
+//    }
 }
 
 /*

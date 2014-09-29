@@ -39,7 +39,7 @@
     
 }
 
-- (int *) generateGrid;
+- (int *) generateGrid
 {
     NSString* gridToUse = _textGrids[arc4random_uniform(_count)];
 
