@@ -16,9 +16,11 @@
     id _target;
     SEL _selector;
     
-    NSMutableArray* _kittens;
+    NSMutableArray* _backgrounds;
+    int _theme;
     
     UIColor* _backgroundColor;
+    UIColor* _initialGridFontColor;
 }
 
 @end
@@ -51,16 +53,11 @@
         CGFloat currentX;
         
         _buttons = [[NSMutableArray alloc] initWithCapacity:9];
-        _kittens = [[NSMutableArray alloc] initWithCapacity:9];
-        //insert jpgs to kittens array
-        for (int i = 1; i<10; ++i) {
-            [_kittens addObject:[UIImage imageNamed:[NSString stringWithFormat:@"kitten%d.jpg", i]]];
-        }
+        [self initThemes];
+
         
-        _backgroundColor = [UIColor colorWithRed:147.0f/255.0f
-                                           green:167.0f/255.0f
-                                            blue:181.0f/255.0f
-                                           alpha:1.0f];
+        _backgroundColor = [UIColor colorWithRed:147.0f/255.0f green:167.0f/255.0f blue:181.0f/255.0f alpha:1.0f];
+        _initialGridFontColor = [UIColor colorWithRed:174.0f/255.0f green:226.0f/255.0f blue:232.0f/255.0f alpha:1.0f];
         
         
         for (int row = 0; row < 9; ++row) {
@@ -117,15 +114,24 @@
     [_target performSelector:_selector];
 }
 
-- (void)setCellatRow:(int)row andColumn:(int)column toValue:(int)value {
+- (void)setCellatRow:(int)row andColumn:(int)column toValue:(int)value andInitial:(BOOL)initial
+{
     UIButton* button = [[_buttons objectAtIndex:row] objectAtIndex: column];
     if (value !=0) {
         [button setTitle:[NSString stringWithFormat:@"%i", value] forState:UIControlStateNormal];
-        [button setBackgroundImage:_kittens[value-1] forState:UIControlStateNormal];
+        if (_theme == 0) {
+            [button setBackgroundImage:nil forState:UIControlStateNormal];
+        }
+        else {
+            [button setBackgroundImage:_backgrounds[_theme-1][value-1] forState:UIControlStateNormal];
+        }
     }
     else {
         [button setTitle: @"" forState:UIControlStateNormal];
         [button setBackgroundImage:nil forState:UIControlStateNormal];
+    }
+    if (initial) {
+        [button setTitleColor:_initialGridFontColor forState:UIControlStateNormal];
     }
 }
 
@@ -133,6 +139,23 @@
 {
     _target = sender;
     _selector = action;
+}
+
+- (void) changeTheme
+{
+    _theme = ++_theme % ([_backgrounds count]+1);
+}
+
+- (void) initThemes
+{
+    _backgrounds = [[NSMutableArray alloc] init];
+    
+    NSMutableArray* kittens = [[NSMutableArray alloc] initWithCapacity:9];
+    //insert jpgs to kittens array
+    for (int i = 1; i<10; ++i) {
+        [kittens addObject:[UIImage imageNamed:[NSString stringWithFormat:@"kitten%d.jpg", i]]];
+    }
+    [_backgrounds addObject:kittens];
 }
 
 /*

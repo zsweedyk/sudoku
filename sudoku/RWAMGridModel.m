@@ -116,6 +116,11 @@
             [saveString appendString: [NSString stringWithFormat:@"%d", _grid[row][col]]];
         }
     }
+    for (int row = 0; row < 9; ++row) {
+        for (int col = 0; col < 9; ++col) {
+            [saveString appendString: [NSString stringWithFormat:@"%d", _mutable[row][col]]];
+        }
+    }
     NSError* error;
     [saveString writeToFile:[[NSBundle mainBundle] pathForResource:@"save" ofType:@"txt"]
                  atomically:YES
@@ -139,6 +144,27 @@
         }
     }
     
+    for (int row = 0; row < 9; ++row) {
+        for (int col = 0; col < 9; ++col) {
+            char currentChar = [savedString characterAtIndex:currentIndex];
+            BOOL numToAdd = [[NSString stringWithFormat:@"%c", currentChar] boolValue];
+            _mutable[row][col] = numToAdd;
+            ++currentIndex;
+        }
+    }
+    //[self setUpMutable];
+    
+}
+
+/* _____ RESTART FUNCTION _____ */
+
+- (void) restartGame
+{
+    for (int row = 0; row < 9; ++row) {
+        for (int col = 0; col < 9; ++col) {
+            _grid[row][col] = (_grid[row][col] * !_mutable[row][col]);
+        }
+    }
 }
 
 @end

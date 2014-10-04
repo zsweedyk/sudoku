@@ -62,7 +62,8 @@
     [_buttonsView setTarget:self action:@selector(saveCurrentState:)];
     [_buttonsView setTarget:self action:@selector(loadSavedState:)];
     [_buttonsView setTarget:self action:@selector(changeTheme:)];
-//    [_buttonsView setTarget:self action:@selector(toggleMusic:)];
+    [_buttonsView setTarget:self action:@selector(toggleMusic:)];
+    [_buttonsView setTarget:self action:@selector(restartGame:)];
     
     _gridModel = [[RWAMGridModel alloc] init];
     
@@ -89,12 +90,12 @@
     if ([_gridModel isMutableAtRow:row andColumn:col]) {
         NSInteger currentValue = [_numPadView getCurrentValue];
         if (currentValue == 0) {
-            [_gridView setCellatRow:row andColumn:col toValue:currentValue];
+            [_gridView setCellatRow:row andColumn:col toValue:currentValue andInitial:NO];
             [_gridModel setValueAtRow:row andColumn:col toValue:currentValue];
         }
         else {
             if ([_gridModel isConsistentAtRow:row andColumn:col forValue:currentValue]) {
-                [_gridView setCellatRow:row andColumn:col toValue:currentValue];
+                [_gridView setCellatRow:row andColumn:col toValue:currentValue andInitial:NO];
                 [_gridModel setValueAtRow:row andColumn:col toValue:currentValue];
             }
         }
@@ -106,7 +107,8 @@
     for(int row = 0; row < 9; ++row) {
         for (int col = 0; col < 9; ++col) {
             int currentValue = [_gridModel getValueAtRow:row andColumn:col];
-            [_gridView setCellatRow:row andColumn:col toValue:currentValue];
+            BOOL isMutable = [_gridModel isMutableAtRow:row andColumn:col];
+            [_gridView setCellatRow:row andColumn:col toValue:currentValue andInitial:!(isMutable)];
         }
     }
 }
@@ -125,12 +127,19 @@
 
 - (void) changeTheme:(id)sender
 {
+    [_gridView changeTheme];
+    [self setInitialGrid];
+}
+
+- (void) toggleMusic:(id)sender
+{
     
 }
 
-- (void) toggleMusic
+- (void) restartGame:(id)sender
 {
-    
+    [_gridModel restartGame];
+    [self setInitialGrid];
 }
 
 - (void)didReceiveMemoryWarning

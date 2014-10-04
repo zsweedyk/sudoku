@@ -95,13 +95,12 @@
     if ([NSStringFromSelector(action)  isEqual: @"changeTheme:"]) {
         [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:3];
     }
-//    if ([NSStringFromSelector(action)  isEqual: @"toggleMusic:"]) {
-//        [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:4];
-//        for (int i = 0; i < 5; ++i) {
-//            SEL selector = [[_buttonSelectors objectAtIndex:i] pointerValue];
-//            NSLog(NSStringFromSelector(selector));
-//        }
-//    }
+    if ([NSStringFromSelector(action)  isEqual: @"toggleMusic:"]) {
+        [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:4];
+    }
+    if ([NSStringFromSelector(action)  isEqual: @"restartGame:"]) {
+        [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:5];
+    }
 }
 
 /*
