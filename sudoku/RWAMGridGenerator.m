@@ -12,7 +12,7 @@
     NSArray* _textGrids;
     NSInteger _count;
     
-    int _returnArray [81];
+    int _mostRecentGrid[81];
 }
 
 @end
@@ -39,7 +39,7 @@
     
 }
 
-- (int *) generateGrid
+- (void) generateGrid
 {
     NSString* gridToUse = _textGrids[arc4random_uniform(_count)];
 
@@ -52,17 +52,24 @@
         for (int col=0; col<9; ++col) {
             char currentChar = [gridToUse characterAtIndex:currentIndex];
             if(currentChar == '.') {
-                _returnArray[currentIndex] = 0;
+//                returnArray[currentIndex] = 0;
+                _mostRecentGrid[currentIndex] = 0;
             }
             else {
 //                NSInteger numToAdd = [[NSString stringWithFormat:@"%c", currentChar] intValue];
                 int numToAdd = [[NSString stringWithFormat:@"%c", currentChar] intValue];
-                _returnArray[currentIndex] = numToAdd;
+//                returnArray[currentIndex] = numToAdd;
+                _mostRecentGrid[currentIndex] = numToAdd;
             }
             ++currentIndex;
         }
     }
-    return _returnArray;
+//    return returnArray;
+}
+
+- (int) getGridValueAtIndex:(int)index
+{
+    return _mostRecentGrid[index];
 }
 
 @end

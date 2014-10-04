@@ -12,6 +12,8 @@
 
 - (void) readGridsFile;
 
-- (int *) generateGrid;
+- (void) generateGrid;
+
+- (int) getGridValueAtIndex:(int)index;
 
 @end

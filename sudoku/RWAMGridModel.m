@@ -47,10 +47,13 @@
 
 - (void) generateGrid
 {
-    int* gridArray = [_gridGenerator generateGrid];
+//    int* gridArray = [_gridGenerator generateGrid];
+    [_gridGenerator generateGrid];
+    int currentIndex = 0;
     for (int row = 0; row < 9; ++row) {
         for (int col = 0; col < 9; ++col) {
-            _grid[row][col] = gridArray[9*row + col];
+            _grid[row][col] = [_gridGenerator getGridValueAtIndex:currentIndex];
+            ++currentIndex;
         }
     }
 }

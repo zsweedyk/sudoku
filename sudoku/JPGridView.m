@@ -7,6 +7,7 @@
 //
 
 #import "JPGridView.h"
+#import "objc/message.h"
 
 @interface JPGridView (){
     NSMutableArray*  _buttons;
@@ -14,6 +15,10 @@
     NSInteger _currentCol;
     id _target;
     SEL _selector;
+    
+    NSMutableArray* _kittens;
+    
+    UIColor* _backgroundColor;
 }
 
 @end
@@ -46,6 +51,16 @@
         CGFloat currentX;
         
         _buttons = [[NSMutableArray alloc] initWithCapacity:9];
+        _kittens = [[NSMutableArray alloc] initWithCapacity:9];
+        //insert jpgs to kittens array
+        for (int i = 1; i<10; ++i) {
+            [_kittens addObject:[UIImage imageNamed:[NSString stringWithFormat:@"kitten%d.jpg", i]]];
+        }
+        
+        _backgroundColor = [UIColor colorWithRed:147.0f/255.0f
+                                           green:167.0f/255.0f
+                                            blue:181.0f/255.0f
+                                           alpha:1.0f];
         
         
         for (int row = 0; row < 9; ++row) {
@@ -59,7 +74,7 @@
                 // Make button.
                 CGRect buttonFrame = CGRectMake(currentX,currentY,buttonSize,buttonSize);
                 UIButton* _button = [[UIButton alloc] initWithFrame:buttonFrame];
-                _button.backgroundColor = [UIColor orangeColor];
+                _button.backgroundColor = _backgroundColor;
                 [self addSubview:_button];
                 [_button setTag:9*row + col];
                 [_button setShowsTouchWhenHighlighted:YES];
@@ -95,6 +110,10 @@
     UIButton* tempButton = (UIButton*) sender;
     _currentRow = (NSInteger)tempButton.tag / 9;
     _currentCol = (NSInteger)tempButton.tag % 9;
+//    void (*response)(id, SEL) = (void (*)(id, SEL)) objc_msgSend;
+//    response(_target, _selector);
+//    IMP imp = [_target methodForSelector:_selector];
+//    imp(_target, _selector);
     [_target performSelector:_selector];
 }
 
@@ -102,9 +121,11 @@
     UIButton* button = [[_buttons objectAtIndex:row] objectAtIndex: column];
     if (value !=0) {
         [button setTitle:[NSString stringWithFormat:@"%i", value] forState:UIControlStateNormal];
+        [button setBackgroundImage:_kittens[value-1] forState:UIControlStateNormal];
     }
     else {
         [button setTitle: @"" forState:UIControlStateNormal];
+        [button setBackgroundImage:nil forState:UIControlStateNormal];
     }
 }
 

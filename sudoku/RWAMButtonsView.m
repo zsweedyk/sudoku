@@ -10,6 +10,7 @@
 
 @interface RWAMButtonsView() {
     id _target;
+//    SEL _relevantSelector;
     
     NSArray* _buttonTitles;
     NSMutableArray* _buttonSelectors;
@@ -74,7 +75,9 @@
 {
     UIButton* tempButton = (UIButton*) sender;
     SEL relevantSelector = [[_buttonSelectors objectAtIndex:tempButton.tag] pointerValue];
-    [_target performSelector:relevantSelector];
+//    IMP imp = [_target methodForSelector:_relevantSelector];
+//    imp(_target, _relevantSelector);
+     [_target performSelector:relevantSelector];
 }
 
 - (void) setTarget:(id)sender action:(SEL)action

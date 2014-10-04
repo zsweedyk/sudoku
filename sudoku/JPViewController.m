@@ -75,7 +75,6 @@
 {
     NSInteger selectedRow = [_gridView getCurrentRow];
     NSInteger selectedCol = [_gridView getCurrentColumn];
-    
     [self validateInputForRow:selectedRow andColumn:selectedCol];
 }
 

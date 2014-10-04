@@ -27,6 +27,15 @@
 		FE121B8719D4CFF100D099A6 /* RWAMGridGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = FE121B8619D4CFF100D099A6 /* RWAMGridGenerator.m */; };
 		FE4C491B19CF7CB3004384C4 /* RWAMNumPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4C491A19CF7CB3004384C4 /* RWAMNumPadView.m */; };
 		FE64BA0C19CCFB9900AE9EA8 /* RWAMGridModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE64BA0B19CCFB9900AE9EA8 /* RWAMGridModel.m */; };
+		FEACF52019DFCEDE003DA6EB /* kitten1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEACF51719DFCEDE003DA6EB /* kitten1.jpg */; };
+		FEACF52119DFCEDE003DA6EB /* kitten2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEACF51819DFCEDE003DA6EB /* kitten2.jpg */; };
+		FEACF52219DFCEDE003DA6EB /* kitten3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEACF51919DFCEDE003DA6EB /* kitten3.jpg */; };
+		FEACF52319DFCEDE003DA6EB /* kitten4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEACF51A19DFCEDE003DA6EB /* kitten4.jpg */; };
+		FEACF52419DFCEDE003DA6EB /* kitten5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEACF51B19DFCEDE003DA6EB /* kitten5.jpg */; };
+		FEACF52519DFCEDE003DA6EB /* kitten6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEACF51C19DFCEDE003DA6EB /* kitten6.jpg */; };
+		FEACF52619DFCEDE003DA6EB /* kitten7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEACF51D19DFCEDE003DA6EB /* kitten7.jpg */; };
+		FEACF52719DFCEDE003DA6EB /* kitten8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEACF51E19DFCEDE003DA6EB /* kitten8.jpg */; };
+		FEACF52819DFCEDE003DA6EB /* kitten9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FEACF51F19DFCEDE003DA6EB /* kitten9.jpg */; };
 		FEFF521619D754E900664B6E /* grid2.txt in Resources */ = {isa = PBXBuildFile; fileRef = FEFF521519D754E900664B6E /* grid2.txt */; };
 		FEFF521919D79C9F00664B6E /* RWAMButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFF521819D79C9F00664B6E /* RWAMButtonsView.m */; };
 		FEFF521B19D8BD2600664B6E /* save.txt in Resources */ = {isa = PBXBuildFile; fileRef = FEFF521A19D8BD2600664B6E /* save.txt */; };
@@ -72,6 +81,15 @@
 		FE4C491A19CF7CB3004384C4 /* RWAMNumPadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWAMNumPadView.m; sourceTree = "<group>"; };
 		FE64BA0A19CCFB9900AE9EA8 /* RWAMGridModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWAMGridModel.h; sourceTree = "<group>"; };
 		FE64BA0B19CCFB9900AE9EA8 /* RWAMGridModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWAMGridModel.m; sourceTree = "<group>"; };
+		FEACF51719DFCEDE003DA6EB /* kitten1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten1.jpg; sourceTree = "<group>"; };
+		FEACF51819DFCEDE003DA6EB /* kitten2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten2.jpg; sourceTree = "<group>"; };
+		FEACF51919DFCEDE003DA6EB /* kitten3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten3.jpg; sourceTree = "<group>"; };
+		FEACF51A19DFCEDE003DA6EB /* kitten4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten4.jpg; sourceTree = "<group>"; };
+		FEACF51B19DFCEDE003DA6EB /* kitten5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten5.jpg; sourceTree = "<group>"; };
+		FEACF51C19DFCEDE003DA6EB /* kitten6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten6.jpg; sourceTree = "<group>"; };
+		FEACF51D19DFCEDE003DA6EB /* kitten7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten7.jpg; sourceTree = "<group>"; };
+		FEACF51E19DFCEDE003DA6EB /* kitten8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten8.jpg; sourceTree = "<group>"; };
+		FEACF51F19DFCEDE003DA6EB /* kitten9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten9.jpg; sourceTree = "<group>"; };
 		FEFF521519D754E900664B6E /* grid2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grid2.txt; sourceTree = "<group>"; };
 		FEFF521719D79C9F00664B6E /* RWAMButtonsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWAMButtonsView.h; sourceTree = "<group>"; };
 		FEFF521819D79C9F00664B6E /* RWAMButtonsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWAMButtonsView.m; sourceTree = "<group>"; };
@@ -148,6 +166,15 @@
 				FEFF521819D79C9F00664B6E /* RWAMButtonsView.m */,
 				0303ABF819C376F400888433 /* JPGridView.h */,
 				0303ABF919C376F400888433 /* JPGridView.m */,
+				FEACF51719DFCEDE003DA6EB /* kitten1.jpg */,
+				FEACF51819DFCEDE003DA6EB /* kitten2.jpg */,
+				FEACF51919DFCEDE003DA6EB /* kitten3.jpg */,
+				FEACF51A19DFCEDE003DA6EB /* kitten4.jpg */,
+				FEACF51B19DFCEDE003DA6EB /* kitten5.jpg */,
+				FEACF51C19DFCEDE003DA6EB /* kitten6.jpg */,
+				FEACF51D19DFCEDE003DA6EB /* kitten7.jpg */,
+				FEACF51E19DFCEDE003DA6EB /* kitten8.jpg */,
+				FEACF51F19DFCEDE003DA6EB /* kitten9.jpg */,
 				FE121B8519D4CFF100D099A6 /* RWAMGridGenerator.h */,
 				FE121B8619D4CFF100D099A6 /* RWAMGridGenerator.m */,
 				FE64BA0A19CCFB9900AE9EA8 /* RWAMGridModel.h */,
@@ -266,9 +293,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEACF52619DFCEDE003DA6EB /* kitten7.jpg in Resources */,
+				FEACF52219DFCEDE003DA6EB /* kitten3.jpg in Resources */,
+				FEACF52819DFCEDE003DA6EB /* kitten9.jpg in Resources */,
 				0303ABD719C25D1A00888433 /* Main_iPad.storyboard in Resources */,
+				FEACF52419DFCEDE003DA6EB /* kitten5.jpg in Resources */,
 				FEFF521B19D8BD2600664B6E /* save.txt in Resources */,
+				FEACF52719DFCEDE003DA6EB /* kitten8.jpg in Resources */,
+				FEACF52119DFCEDE003DA6EB /* kitten2.jpg in Resources */,
+				FEACF52319DFCEDE003DA6EB /* kitten4.jpg in Resources */,
+				FEACF52019DFCEDE003DA6EB /* kitten1.jpg in Resources */,
 				FE121B8419D4CF9400D099A6 /* grid1.txt in Resources */,
+				FEACF52519DFCEDE003DA6EB /* kitten6.jpg in Resources */,
 				0303ABDC19C25D1A00888433 /* Images.xcassets in Resources */,
 				FEFF521619D754E900664B6E /* grid2.txt in Resources */,
 				0303ABD419C25D1A00888433 /* Main_iPhone.storyboard in Resources */,
