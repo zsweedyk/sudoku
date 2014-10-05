@@ -11,6 +11,8 @@
 #import "RWAMGridModel.h"
 #import "RWAMNumPadView.h"
 #import "RWAMButtonsView.h"
+#import "AudioToolbox/AudioToolbox.h"
+#import "AVFoundation/AVFoundation.h"
 
 @interface JPViewController () {
     
@@ -18,6 +20,9 @@
     RWAMGridModel* _gridModel;
     RWAMNumPadView* _numPadView;
     RWAMButtonsView* _buttonsView;
+    AVAudioPlayer* _player;
+    BOOL _isPlaying;
+    UIColor* _buttonBackgroundColor;
 }
 
 @end
@@ -37,8 +42,11 @@
     
     CGRect gridFrame = CGRectMake(x,y,size,size);
     
+    _buttonBackgroundColor = [UIColor colorWithRed:147.0f/255.0f green:167.0f/255.0f blue:181.0f/255.0f alpha:1.0f];
+    
     // Create grid view.
     _gridView = [[JPGridView alloc] initWithFrame:gridFrame];
+    [_gridView setButtonBackgroundColor:_buttonBackgroundColor];
     _gridView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_gridView];
     [_gridView setTarget:self action:@selector(gridCellSelected:)];
@@ -49,6 +57,7 @@
     
     CGRect numPadFrame = CGRectMake(x, numPadY, size, size * .10);
     _numPadView = [[RWAMNumPadView alloc] initWithFrame:numPadFrame];
+    [_numPadView setButtonBackgroundColor:_buttonBackgroundColor];
     _numPadView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_numPadView];
     
@@ -56,7 +65,8 @@
     CGFloat newGameButtonY = numPadY + spaceBetweenViews + size*.10;
     CGRect buttonViewFrame = CGRectMake(x, newGameButtonY, size, size*.30);
     _buttonsView = [[RWAMButtonsView alloc] initWithFrame:buttonViewFrame];
-    _buttonsView.backgroundColor = [UIColor greenColor];
+    [_buttonsView setButtonBackgroundColor:_buttonBackgroundColor];
+    _buttonsView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_buttonsView];
     [_buttonsView setTarget:self action:@selector(newGame:)];
     [_buttonsView setTarget:self action:@selector(saveCurrentState:)];
@@ -70,6 +80,12 @@
     [_gridModel initializeFirstGame];
     [self setInitialGrid];
     
+    // Set up audio player
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"Justin Mahar - The Grind" ofType:@"mp3"];
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    _player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+    _player.numberOfLoops = -1; //infinite
+    _isPlaying = NO;
 }
 
 - (void)gridCellSelected:(id)sender
@@ -133,7 +149,13 @@
 
 - (void) toggleMusic:(id)sender
 {
-    
+    if (_isPlaying) {
+        [_player stop];
+    }
+    else {
+        [_player play];
+    }
+    _isPlaying = !_isPlaying;
 }
 
 - (void) restartGame:(id)sender

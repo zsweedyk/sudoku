@@ -12,4 +12,6 @@
 
 - (void) setTarget:(id)sender action:(SEL)action;
 
+- (void) setButtonBackgroundColor:(UIColor*)color;
+
 @end

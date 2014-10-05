@@ -20,5 +20,6 @@
 
 - (void) changeTheme;
 
+- (void) setButtonBackgroundColor:(UIColor*)color;
 
 @end

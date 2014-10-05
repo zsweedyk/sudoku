@@ -12,6 +12,7 @@
 {
     NSMutableArray*  _buttons;
     int _currentValue;
+    UIColor* _backgroundColor;
 }
 
 @end
@@ -59,9 +60,18 @@
 - (void)cellSelected:(id)sender
 {
     UIButton* tempButton = (UIButton*) sender;
-    ((UIButton*) _buttons[_currentValue]).backgroundColor = [UIColor magentaColor];
+    ((UIButton*) _buttons[_currentValue]).backgroundColor = _backgroundColor;
     _currentValue = tempButton.tag;
-    ((UIButton*) _buttons[_currentValue]).backgroundColor = [UIColor cyanColor];
+    ((UIButton*) _buttons[_currentValue]).backgroundColor = [UIColor blackColor];
+}
+
+- (void) setButtonBackgroundColor:(UIColor*)color
+{
+    _backgroundColor = color;
+    for (int pos = 0; pos < 10; ++pos) {
+        UIButton* button = _buttons[pos];
+        button.backgroundColor = color;
+    }
 }
 
 /*

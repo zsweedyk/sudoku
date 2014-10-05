@@ -12,4 +12,6 @@
 
 - (int) getCurrentValue;
 
+- (void) setButtonBackgroundColor:(UIColor*)color;
+
 @end

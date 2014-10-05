@@ -19,7 +19,6 @@
     NSMutableArray* _backgrounds;
     int _theme;
     
-    UIColor* _backgroundColor;
     UIColor* _initialGridFontColor;
 }
 
@@ -54,9 +53,7 @@
         
         _buttons = [[NSMutableArray alloc] initWithCapacity:9];
         [self initThemes];
-
         
-        _backgroundColor = [UIColor colorWithRed:147.0f/255.0f green:167.0f/255.0f blue:181.0f/255.0f alpha:1.0f];
         _initialGridFontColor = [UIColor colorWithRed:174.0f/255.0f green:226.0f/255.0f blue:232.0f/255.0f alpha:1.0f];
         
         
@@ -71,7 +68,6 @@
                 // Make button.
                 CGRect buttonFrame = CGRectMake(currentX,currentY,buttonSize,buttonSize);
                 UIButton* _button = [[UIButton alloc] initWithFrame:buttonFrame];
-                _button.backgroundColor = _backgroundColor;
                 [self addSubview:_button];
                 [_button setTag:9*row + col];
                 [_button setShowsTouchWhenHighlighted:YES];
@@ -133,6 +129,9 @@
     if (initial) {
         [button setTitleColor:_initialGridFontColor forState:UIControlStateNormal];
     }
+    else {
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    }
 }
 
 - (void)setTarget:(id)sender action:(SEL)action
@@ -156,6 +155,17 @@
         [kittens addObject:[UIImage imageNamed:[NSString stringWithFormat:@"kitten%d.jpg", i]]];
     }
     [_backgrounds addObject:kittens];
+}
+
+- (void) setButtonBackgroundColor:(UIColor*)color
+{
+    for (int row = 0; row < 9; ++row) {
+        for (int col = 0; col < 9; ++col) {
+            UIButton* button = _buttons[row][col];
+            button.backgroundColor = color;
+        }
+    }
+
 }
 
 /*

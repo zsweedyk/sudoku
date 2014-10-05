@@ -13,6 +13,7 @@
 //    SEL _relevantSelector;
     
     NSArray* _buttonTitles;
+    NSMutableArray* _buttons;
     NSMutableArray* _buttonSelectors;
     
 }
@@ -33,8 +34,8 @@
         CGFloat buttonHeight = height*.44;
         
         CGFloat width = CGRectGetWidth(frame);
-        CGFloat horizontalSeparationDistance = width*.04;
-        CGFloat buttonWidth = width*.28;
+        CGFloat horizontalSeparationDistance = verticalSeparationDistance;
+        CGFloat buttonWidth = (width - 4*(horizontalSeparationDistance))/3;
         
         _buttonTitles = [[NSArray alloc] init];
         _buttonSelectors = [[NSMutableArray alloc] init];
@@ -46,8 +47,9 @@
         _buttonTitles = [titleNames componentsSeparatedByString:@", "];
         
         
-        
+        _buttons = [[NSMutableArray alloc] initWithCapacity:2];
         for (int row = 0; row < 2; ++row) {
+            NSMutableArray* currentRow = [[NSMutableArray alloc] initWithCapacity:3];
             for (int col = 0; col < 3; ++col) {
                 CGRect buttonFrame = CGRectMake(currentX, currentY, buttonWidth, buttonHeight);
                 UIButton* button = [[UIButton alloc] initWithFrame:buttonFrame];
@@ -61,8 +63,10 @@
                 if (buttonIndex == 0) {
                     button.titleLabel.font = [UIFont systemFontOfSize:10];
                 }
+                [currentRow addObject:button];
                 ++buttonIndex;
             }
+            [_buttons addObject:currentRow];
             currentX = horizontalSeparationDistance;
             currentY += verticalSeparationDistance + buttonHeight;
         }
@@ -100,6 +104,16 @@
     }
     if ([NSStringFromSelector(action)  isEqual: @"restartGame:"]) {
         [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:5];
+    }
+}
+
+- (void) setButtonBackgroundColor:(UIColor*)color
+{
+    for (int row = 0; row < 2; ++row) {
+        for (int col = 0; col < 3; ++col) {
+            UIButton* button = _buttons[row][col];
+            button.backgroundColor = color;
+        }
     }
 }
 
