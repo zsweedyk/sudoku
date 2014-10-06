@@ -103,10 +103,6 @@
     UIButton* tempButton = (UIButton*) sender;
     _currentRow = (NSInteger)tempButton.tag / 9;
     _currentCol = (NSInteger)tempButton.tag % 9;
-//    void (*response)(id, SEL) = (void (*)(id, SEL)) objc_msgSend;
-//    response(_target, _selector);
-//    IMP imp = [_target methodForSelector:_selector];
-//    imp(_target, _selector);
     [_target performSelector:_selector];
 }
 

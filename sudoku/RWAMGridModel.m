@@ -3,7 +3,7 @@
 //  sudoku
 //
 //  Created by Rachel Wilson on 9/19/14.
-//  Copyright (c) 2014 Josh Petrack. All rights reserved.
+//  Copyright (c) 2014 Rachel Wilson and Amit Maor. All rights reserved.
 //
 
 #import "RWAMGridModel.h"
@@ -16,19 +16,6 @@
 }
 
 @end
-//int _grid[9][9]={
-//    {7,0,0,4,2,0,0,0,9},
-//    {0,0,9,5,0,0,0,0,4},
-//    {0,2,0,6,9,0,5,0,0},
-//    {6,5,0,0,0,0,4,3,0},
-//    {0,8,0,0,0,6,0,0,7},
-//    {0,1,0,0,4,5,6,0,0},
-//    {0,0,0,8,6,0,0,0,2},
-//    {3,4,0,9,0,0,1,0,0},
-//    {8,0,0,3,0,2,7,4,0}
-//};
-
-
 
 @implementation RWAMGridModel
 
@@ -47,7 +34,6 @@
 
 - (void) generateGrid
 {
-//    int* gridArray = [_gridGenerator generateGrid];
     [_gridGenerator generateGrid];
     int currentIndex = 0;
     for (int row = 0; row < 9; ++row) {
@@ -152,8 +138,6 @@
             ++currentIndex;
         }
     }
-    //[self setUpMutable];
-    
 }
 
 /* _____ RESTART FUNCTION _____ */
