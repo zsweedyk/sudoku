@@ -49,7 +49,7 @@
     [_gridView setButtonBackgroundColor:_buttonBackgroundColor];
     _gridView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_gridView];
-    [_gridView setTarget:self action:@selector(gridCellSelected:)];
+    [_gridView setTarget:self action:@selector(gridCellSelected)];
     
     // Create numpad view.
     CGFloat spaceBetweenViews = MIN(CGRectGetWidth(frame), CGRectGetHeight(frame))*.02;
@@ -68,12 +68,12 @@
     [_buttonsView setButtonBackgroundColor:_buttonBackgroundColor];
     _buttonsView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_buttonsView];
-    [_buttonsView setTarget:self action:@selector(newGame:)];
-    [_buttonsView setTarget:self action:@selector(saveCurrentState:)];
-    [_buttonsView setTarget:self action:@selector(loadSavedState:)];
-    [_buttonsView setTarget:self action:@selector(changeTheme:)];
-    [_buttonsView setTarget:self action:@selector(toggleMusic:)];
-    [_buttonsView setTarget:self action:@selector(restartGame:)];
+    [_buttonsView setTarget:self action:@selector(newGame)];
+    [_buttonsView setTarget:self action:@selector(saveCurrentState)];
+    [_buttonsView setTarget:self action:@selector(loadSavedState)];
+    [_buttonsView setTarget:self action:@selector(changeTheme)];
+    [_buttonsView setTarget:self action:@selector(toggleMusic)];
+    [_buttonsView setTarget:self action:@selector(restartGame)];
     
     _gridModel = [[RWAMGridModel alloc] init];
     
@@ -88,14 +88,14 @@
     _isPlaying = NO;
 }
 
-- (void)gridCellSelected:(id)sender
+- (void)gridCellSelected
 {
     NSInteger selectedRow = [_gridView getCurrentRow];
     NSInteger selectedCol = [_gridView getCurrentColumn];
     [self validateInputForRow:selectedRow andColumn:selectedCol];
 }
 
-- (void) newGame:(id)sender
+- (void) newGame
 {
     [_gridModel startNewGame];
     [self setInitialGrid];
@@ -130,24 +130,24 @@
 }
 
 /* _____ SAVE AND LOAD FUNCTIONS _____ */
-- (void) saveCurrentState:(id)sender
+- (void) saveCurrentState
 {
     [_gridModel saveCurrentState];
 }
 
-- (void) loadSavedState:(id)sender
+- (void) loadSavedState
 {
     [_gridModel loadSavedState];
     [self setInitialGrid];
 }
 
-- (void) changeTheme:(id)sender
+- (void) changeTheme
 {
     [_gridView changeTheme];
     [self setInitialGrid];
 }
 
-- (void) toggleMusic:(id)sender
+- (void) toggleMusic
 {
     if (_isPlaying) {
         [_player stop];
@@ -158,7 +158,7 @@
     _isPlaying = !_isPlaying;
 }
 
-- (void) restartGame:(id)sender
+- (void) restartGame
 {
     [_gridModel restartGame];
     [self setInitialGrid];

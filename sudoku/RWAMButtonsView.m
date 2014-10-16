@@ -87,22 +87,22 @@
 - (void) setTarget:(id)sender action:(SEL)action
 {
     _target = sender;
-    if ([NSStringFromSelector(action)  isEqual: @"newGame:"]) {
+    if ([NSStringFromSelector(action)  isEqual: @"newGame"]) {
         [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:0];
     }
-    if ([NSStringFromSelector(action)  isEqual: @"saveCurrentState:"]) {
+    if ([NSStringFromSelector(action)  isEqual: @"saveCurrentState"]) {
         [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:1];
     }
-    if ([NSStringFromSelector(action)  isEqual: @"loadSavedState:"]) {
+    if ([NSStringFromSelector(action)  isEqual: @"loadSavedState"]) {
         [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:2];
     }
-    if ([NSStringFromSelector(action)  isEqual: @"changeTheme:"]) {
+    if ([NSStringFromSelector(action)  isEqual: @"changeTheme"]) {
         [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:3];
     }
-    if ([NSStringFromSelector(action)  isEqual: @"toggleMusic:"]) {
+    if ([NSStringFromSelector(action)  isEqual: @"toggleMusic"]) {
         [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:4];
     }
-    if ([NSStringFromSelector(action)  isEqual: @"restartGame:"]) {
+    if ([NSStringFromSelector(action)  isEqual: @"restartGame"]) {
         [_buttonSelectors insertObject:[NSValue valueWithPointer:action] atIndex:5];
     }
 }
